@@ -2,6 +2,16 @@
 
 A simple multi-client broadcast chat server built with Python's `asyncio`. Clients connect over TCP, pick a username, and every message one client sends is broadcast to all the other connected clients. The server also keeps a live list of connected users.
 
+## Project background
+
+This project is a solution to the [Broadcast Server](https://roadmap.sh/projects/broadcast-server) project from [roadmap.sh](https://roadmap.sh), which is about understanding how real-time features such as chat apps and live scoreboards work. The goals of that project are:
+
+- a server that tracks connected clients and broadcasts each client's message to all of them
+- handling multiple clients joining and leaving smoothly
+- error handling and graceful shutdown
+
+This implementation uses plain TCP sockets with `asyncio` rather than WebSockets, and it is started with `python server.py` and `python client.py` rather than a `broadcast-server start` / `connect` CLI.
+
 ## Features
 
 - Handles many clients at once on a single event loop (no threads, no locks)
